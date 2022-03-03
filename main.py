@@ -62,7 +62,12 @@ def sqli():
 
 @api.route('/csrf', methods=['GET'])
 def csrf():
-    return "No csrf"
+    return """
+        <form action="" method="post">
+            <input type="email" name="email" id="">
+            <input type="button" value="Forget Password">
+        </form>
+    """
 
 @api.route('/commandinjection', methods=['GET'])
 def commandinjection():
@@ -84,7 +89,7 @@ def index():
             <li><a href="/ssti">SSTI</a></li>
             <li><a href="/xss">XSS</a></li>
             <li><a href="/sqli">SQLI</a></li>
-            <li><a href="/sqli">CSRF</a></li>
+            <li><a href="/csrf">CSRF</a></li>
             <li><a href="/commandinjection">Command Injection</a></li>
             <li><a href="/fileinjection">File Injection</a></li>
         </ul>
